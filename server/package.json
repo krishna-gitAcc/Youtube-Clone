@@ -1,0 +1,11 @@
+{
+  "name": "youtube_server",
+  "version": "1.0.0",
+  "description": "this power the backend of the youtube clone app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "krishna kumar",
+  "license": "ISC"
+}
