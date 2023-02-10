@@ -8,7 +8,7 @@ import userRoutes from "./user.js";
 import videoRoutes from "./video.js";
 
 router.use("/auth", authRoutes);
-router.use("/comments", commentsRoutes);
+router.use("/comment", commentsRoutes);
 router.use("/user", userRoutes);
 router.use("/video", videoRoutes);
 

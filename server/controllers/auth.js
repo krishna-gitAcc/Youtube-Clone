@@ -15,7 +15,9 @@ export const signup = async (req, res, next) => {
     const newUser = new User({ ...req.body, password: hashPassword });
     await newUser.save();
 
-    res.status(200).json({ success: true, user: newUser });
+    const { password, ...user } = newUser._doc;
+
+    res.status(200).json({ success: true, user: user });
   } catch (err) {
     next(err);
   }
@@ -29,8 +31,8 @@ export const signin = async (req, res, next) => {
 
     const isCorrect = await bcrypt.compare(req.body.password, user.password);
     if (!isCorrect) next(CreateCustomeError("Wrong Credentials!", 400));
-
-    const token = jwt.sign({ id: user.__id }, process.env.jwt_secret_key);
+    // console.log(user);
+    const token = jwt.sign({ id: user._id }, process.env.jwt_secret_key);
 
     const { password, ...others } = user._doc;
     // console.log(token);

@@ -32,11 +32,11 @@ const VideoSchema = new Schema(
       default: [],
     },
     likes: {
-      type: Number,
+      type: [String],
       default: 0,
     },
     dislikes: {
-      type: Number,
+      type: [String],
       default: 0,
     },
     commentClosed: {
