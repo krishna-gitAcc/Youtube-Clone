@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   position: sticky;
@@ -33,6 +34,8 @@ const Search = styled.div`
 const Input = styled.input`
   border: none;
   background-color: transparent;
+  outline: none;
+  width: 100%;
 `;
 const Button = styled.button`
   padding: 5px 15px;
@@ -40,7 +43,7 @@ const Button = styled.button`
   border: 1px solid #3ea6ff;
   color: #3ea6ff;
   border-radius: 3px;
-  font-weight: 500; 
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -56,10 +59,12 @@ export default function Navbar() {
             <Input placeholder="search"></Input>
             <SearchIcon />
           </Search>
-          <Button>
-            <AccountCircleIcon />
-            Sign In
-          </Button>
+          <Link to="/signin" style={{ textDecoration: "none" }}>
+            <Button>
+              <AccountCircleIcon />
+              Sign In
+            </Button>
+          </Link>
         </Wrapper>
       </Container>
     </>

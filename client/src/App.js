@@ -7,6 +7,8 @@ import Video from "./Pages/Video";
 import { darkTheme, lightTheme } from "./utils/Thems";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { SignpostOutlined } from "@mui/icons-material";
+import Signin from "./Pages/Signin";
 
 const Container = styled.div`
   display: flex;
@@ -35,6 +37,7 @@ function App() {
               <Routes>
                 <Route path="/">
                   <Route index element={<Home />} />
+                  <Route path="signin" element = {<Signin/>}/>
                   <Route path="video">
                     <Route path=":id" element={<Video />} />
                   </Route>

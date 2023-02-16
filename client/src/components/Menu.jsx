@@ -50,6 +50,9 @@ const Items = styled.div`
   gap: 20px;
   cursor: pointer;
   padding: 7.5px;
+  &:hover {
+    background-color: ${({ theme }) => theme.soft};
+  }
 `;
 
 const Hr = styled.hr`
@@ -112,10 +115,12 @@ export default function Menu({ darkMode, setdarkMode }) {
         <Hr />
         <Login>
           Sign in to like videos, comment, and subscribe.
-          <Button>
-            <AccountCircleIcon />
-            Sign In
-          </Button>
+          <Link to="/signin" style={{ textDecoration: "none" }}>
+            <Button>
+              <AccountCircleIcon />
+              Sign In
+            </Button>
+          </Link>
         </Login>
         <Hr />
         <Title>Best Video from krishna</Title>
@@ -158,7 +163,7 @@ export default function Menu({ darkMode, setdarkMode }) {
         </Items>
         <Items onClick={() => setdarkMode(!darkMode)}>
           <SettingsBrightnessIcon />
-          Light Mode
+          {darkMode ? "Light" : "Dark"} Mode
         </Items>
       </Wrapper>
     </Container>
