@@ -128,3 +128,16 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Node artifact files
+node_modules/
+dist/
+.env
+._env
+
+server/builds
+server/node_modules/
+server/.env
+client/build
+client/node_modules/
+client/.env

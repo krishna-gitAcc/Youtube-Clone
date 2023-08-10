@@ -1,23 +1,23 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema;
 
-const UserSchema = new Schema(
+const { Schema } = mongoose;
+
+const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Please provide a name"],
+      require: true,
     },
     email: {
       type: String,
-      required: [true, "User is email id already exists"],
       unique: true,
+      require: true,
     },
     password: {
       type: String,
-      required: true,
-      minLength: [6, "Please provide a longer password"],
+      require: true,
     },
-    image: {
+    img: {
       type: String,
     },
     subscribers: {
@@ -26,14 +26,7 @@ const UserSchema = new Schema(
     },
     subscribedUsers: {
       type: [String],
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
-    emailVerified: {
-      type: Boolean,
-      default: false,
+      default: [],
     },
   },
   {
@@ -41,4 +34,4 @@ const UserSchema = new Schema(
   }
 );
 
-export default mongoose.model("User", UserSchema);
+export default mongoose.model("User", userSchema);

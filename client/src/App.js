@@ -2,13 +2,14 @@ import "./App.css";
 import styled, { ThemeProvider } from "styled-components";
 import Menu from "./components/Menu.jsx";
 import Navbar from "./components/Navbar";
-import Home from "./Pages/Home";
-import Video from "./Pages/Video";
+import Home from "./Screens/Home";
+import Video from "./Screens/Video";
 import { darkTheme, lightTheme } from "./utils/Thems";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SignpostOutlined } from "@mui/icons-material";
-import Signin from "./Pages/Signin";
+import Signin from "./Screens/Signin";
+import SignUp from "./Screens/SignUp";
 
 const Container = styled.div`
   display: flex;
@@ -37,7 +38,8 @@ function App() {
               <Routes>
                 <Route path="/">
                   <Route index element={<Home />} />
-                  <Route path="signin" element = {<Signin/>}/>
+                  <Route path="signin" element={<Signin />} />
+                  <Route path="signup" element={<SignUp />} />
                   <Route path="video">
                     <Route path=":id" element={<Video />} />
                   </Route>

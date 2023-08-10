@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Videotube from "../img/logo.png";
+import VideoTube from "../img/logo.png";
 import HomeIcon from "@mui/icons-material/Home";
 import ExploreIcon from "@mui/icons-material/Explore";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
@@ -87,14 +87,16 @@ export default function Menu({ darkMode, setdarkMode }) {
       <Wrapper>
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <Logo>
-            <Img src={Videotube} />
+            <Img src={VideoTube} />
             VidoeTube
           </Logo>
         </Link>
-        <Items>
-          <HomeIcon />
-          Home
-        </Items>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <Items>
+            <HomeIcon />
+            Home
+          </Items>
+        </Link>
         <Items>
           <ExploreIcon />
           Explore
