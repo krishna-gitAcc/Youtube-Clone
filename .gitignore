@@ -1,3 +1,9 @@
+server/builds
+server/node_modules/
+server/.env
+client/build
+client/node_modules/
+client/.env
 # Logs
 logs
 *.log
@@ -134,10 +140,3 @@ node_modules/
 dist/
 .env
 ._env
-
-server/builds
-server/node_modules/
-server/.env
-client/build
-client/node_modules/
-client/.env
