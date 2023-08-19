@@ -27,7 +27,6 @@ export const signin = async (req, res, next) => {
     if (!isCorrect) {
       return next(createError(400, "wrong credential"));
     }
-    console.log(user._id, "asdfj;laskdjfkl;asjd");
     const token = jwt.sign({ id: user._id }, process.env.jwtSecret);
 
     const { password, ...otherDetails } = user._doc;
@@ -42,5 +41,32 @@ export const signin = async (req, res, next) => {
       });
   } catch (error) {
     next(error);
+  }
+};
+
+export const googleAuth = async (req, res, next) => {
+  try {
+    const user = await User.findOne({
+      email: req.body.email,
+    });
+    if (user) {
+      const token = jwt.sign({ id: user._id }, process.env.jwtSecret);
+      res.cookie("access_token", token, { httpOnly: true }).status(200).json({
+        success: true,
+        message: "user signIn successfully",
+        data: user._doc,
+      });
+    } else {
+      const newUser = new User({ ...req.body, fromGoogle: true });
+      const savedUser = await newUser.save();
+      const token = jwt.sign({ id: savedUser._id }, process.env.jwtSecret);
+      res.cookie("access_token", token, { httpOnly: true }).status(200).json({
+        success: true,
+        message: "user signIn successfully",
+        data: save._doc,
+      });   
+    }
+  } catch (error) {
+    return next(error);
   }
 };

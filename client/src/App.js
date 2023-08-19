@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SignpostOutlined } from "@mui/icons-material";
 import Signin from "./Screens/Signin";
 import SignUp from "./Screens/SignUp";
+import Search from "./Screens/Search";
 
 const Container = styled.div`
   display: flex;
@@ -37,7 +38,10 @@ function App() {
             <Wrapper>
               <Routes>
                 <Route path="/">
-                  <Route index element={<Home />} />
+                  <Route index element={<Home type="random" />} />
+                  <Route path="trends" element={<Home type="trend" />} />
+                  <Route path="search" element={<Search />} />
+                  <Route path="subscriptions" element={<Home type="sub" />} />
                   <Route path="signin" element={<Signin />} />
                   <Route path="signup" element={<SignUp />} />
                   <Route path="video">

@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -15,7 +16,7 @@ const Img = styled.img`
   cursor: pointer;
   flex: 1;
   height: 120px;
-  width: 100%;
+  width: 120px;
 `;
 const Details = styled.div`
   display: flex;
@@ -40,15 +41,24 @@ const Info = styled.div`
   color: ${({ theme }) => theme.textSoft};
 `;
 
-export default function RecommendationCard() {
+export default function RecommendationCard({ video }) {
+  const [channel, setChannel] = useState({});
+  useEffect(() => {
+    const fetchVideos = async () => {
+      const response = await axios.get(`/users/find/${video.userId}`);
+      setChannel(response.data.data);
+      console.log(response.data.data);
+    };
+    fetchVideos();
+  }, [video.userId]);
   return (
     <Link to="/video/test" style={{ textDecoration: "none" }}>
       <Container>
-        <Img src="https://www.fotor.com/blog/wp-content/uploads/2019/10/Untitled-design-18.jpg" />
+        <Img src={video.imgUrl} />
         <Details>
-          <Title>Test Video</Title>
-          <ChannelName>My Channel</ChannelName>
-          <Info>This is information regarding the video.</Info>
+          <Title>{video.title}</Title>
+          <ChannelName>{channel.name}</ChannelName>
+          <Info>{video.desc}</Info>
         </Details>
       </Container>
     </Link>

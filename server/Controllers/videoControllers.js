@@ -151,6 +151,7 @@ export const getByTags = async (req, res, next) => {
 };
 export const getByTitle = async (req, res, next) => {
   const query = req.query.q;
+  console.log(query, "from video find page");
   try {
     const video = await Video.find({
       title: new RegExp(`^${query}`, "i") || null,

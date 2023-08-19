@@ -19,6 +19,7 @@ import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Link } from "react-router-dom";
 import { color } from "@mui/system";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
   flex: 1;
@@ -82,13 +83,14 @@ const Title = styled.h2`
 `;
 
 export default function Menu({ darkMode, setdarkMode }) {
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <Container>
       <Wrapper>
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <Logo>
             <Img src={VideoTube} />
-            VidoeTube
+            VideoTube
           </Logo>
         </Link>
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
@@ -97,14 +99,22 @@ export default function Menu({ darkMode, setdarkMode }) {
             Home
           </Items>
         </Link>
-        <Items>
-          <ExploreIcon />
-          Explore
-        </Items>
-        <Items>
-          <SubscriptionsIcon />
-          Subscriptions
-        </Items>
+        <Link to="/trends" style={{ textDecoration: "none", color: "inherit" }}>
+          <Items>
+            <ExploreIcon />
+            Explore
+          </Items>
+        </Link>
+
+        <Link
+          to="/subscriptions"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <Items>
+            <SubscriptionsIcon />
+            Subscriptions
+          </Items>
+        </Link>
         <Hr />
         <Items>
           <VideoLibraryIcon />
@@ -115,16 +125,20 @@ export default function Menu({ darkMode, setdarkMode }) {
           History
         </Items>
         <Hr />
-        <Login>
-          Sign in to like videos, comment, and subscribe.
-          <Link to="/signin" style={{ textDecoration: "none" }}>
-            <Button>
-              <AccountCircleIcon />
-              Sign In
-            </Button>
-          </Link>
-        </Login>
-        <Hr />
+        {!currentUser && (
+          <>
+            <Login>
+              Sign in to like videos, comment, and subscribe.
+              <Link to="/signin" style={{ textDecoration: "none" }}>
+                <Button>
+                  <AccountCircleIcon />
+                  Sign In
+                </Button>
+              </Link>
+            </Login>
+            <Hr />
+          </>
+        )}
         <Title>Best Video from krishna</Title>
         <Items>
           <LibraryMusicIcon />
