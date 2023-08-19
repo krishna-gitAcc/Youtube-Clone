@@ -99,7 +99,6 @@ export default function Signin() {
     dispatch(loginStart());
     try {
       const response = await axios.post("/auth/signin", loginPayload);
-      console.log(response.data.data);
       dispatch(loginSuccess(response.data.data));
     } catch (error) {
       dispatch(loginFailure());
@@ -117,7 +116,6 @@ export default function Signin() {
             img: result.user.photoURL,
           })
           .then((response) => {
-            console.log(response);
             dispatch(loginSuccess(response.data.data));
           });
       })

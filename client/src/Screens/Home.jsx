@@ -16,7 +16,6 @@ export default function Home({ type }) {
     const fetchVideos = async () => {
       const response = await axios.get(`videos/${type}`);
       setVideo(response.data.data);
-      console.log(response.data.data);
     };
     fetchVideos();
   }, [type]);

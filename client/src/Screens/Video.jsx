@@ -138,7 +138,6 @@ export default function Video() {
         );
         dispatch(videoFetchSuccess(videoResponse.data.data));
         setChannel(channelResponse.data.data);
-        console.log(channelResponse.data.data);
       } catch (error) {}
     };
     fetchData();

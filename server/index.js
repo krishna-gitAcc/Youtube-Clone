@@ -25,7 +25,7 @@ const connect = () => {
 connect();
 
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  res.send("Hello from youtube-backend");
 });
 
 app.use("/api", Routes);

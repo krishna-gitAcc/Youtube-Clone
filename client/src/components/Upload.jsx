@@ -127,12 +127,10 @@ export default function Upload({ setUploadOpen }) {
   };
 
   const handleChange = (e) => {
-    // console.log(e.target.name, e.target.value, "asdflkj;alskdfj");
     setFileInput({ ...fileInput, [e.target.name]: e.target.value });
   };
 
   const handleUpload = async (e) => {
-    console.log(fileInput);
     e.preventDefault();
     const response = await axios.post("/videos", { ...fileInput, videoTag });
     setUploadOpen(false);

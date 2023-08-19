@@ -19,12 +19,9 @@ export const deleteComment = async (req, res, next) => {
     const comment = await Comment.findOne({
       _id: req.params.commentId,
     });
-    console.log(comment);
     const video = await Video.findOne({
       _id: comment.videoId,
     });
-    console.log(video);
-    console.log(req.user.id);
     if (
       req.user.id === comment.userId.toString() ||
       req.user.id === video.userId

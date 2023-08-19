@@ -47,7 +47,6 @@ export default function RecommendationCard({ video }) {
     const fetchVideos = async () => {
       const response = await axios.get(`/users/find/${video.userId}`);
       setChannel(response.data.data);
-      console.log(response.data.data);
     };
     fetchVideos();
   }, [video.userId]);

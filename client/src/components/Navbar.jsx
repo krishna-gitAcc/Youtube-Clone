@@ -110,11 +110,6 @@ export default function Navbar() {
     e.preventDefault();
     handleClose(e);
     dispatch(logout());
-    console.log("hello");
-  };
-
-  const handleVideoUpload = () => {
-    console.log("video uploaded successfully");
   };
 
   return (

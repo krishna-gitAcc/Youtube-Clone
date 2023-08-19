@@ -32,7 +32,6 @@ export default function Comments({ videoId }) {
     const fetchComments = async () => {
       try {
         const response = await axios.get(`/comments/${videoId}`);
-        console.log(response);
         setComments(response.data.data);
       } catch (error) {}
     };

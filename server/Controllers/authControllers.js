@@ -8,7 +8,6 @@ export const signup = async (req, res, next) => {
   try {
     const saltRounds = 10;
     const salt = bcrypt.genSaltSync(saltRounds);
-    console.log(req.body);
     const hashPassword = bcrypt.hashSync(req.body.password, salt);
     const newUser = new User({ ...req.body, password: hashPassword });
     const user = await newUser.save();
@@ -64,7 +63,7 @@ export const googleAuth = async (req, res, next) => {
         success: true,
         message: "user signIn successfully",
         data: save._doc,
-      });   
+      });
     }
   } catch (error) {
     return next(error);

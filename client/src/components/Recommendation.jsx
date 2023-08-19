@@ -14,7 +14,6 @@ export default function Recommendation({ tags }) {
     const fetchVideos = async () => {
       const response = await axios.get(`/videos/tags?tags=${tags}`);
       setVideo(response.data.data);
-      console.log(response.data.data);
     };
     fetchVideos();
   }, [tags]);
