@@ -1,8 +1,4 @@
-import {
-  configureStore,
-  combineReducers,
-  getDefaultMiddleware,
-} from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import userReducer from "./userSlice";
 import videoReducer from "./videoSlice";
 
@@ -18,7 +14,6 @@ import {
 } from "redux-persist";
 
 import storage from "redux-persist/lib/storage";
-import { PersistGate } from "redux-persist/integration/react";
 
 const persistConfig = {
   key: "root",

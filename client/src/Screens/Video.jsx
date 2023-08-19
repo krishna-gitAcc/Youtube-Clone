@@ -7,20 +7,15 @@ import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
 import ShareIcon from "@mui/icons-material/Share";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 import Comments from "../components/Comments";
-import Comment from "../components/Comment";
-import RecommendationCard from "../components/RecommendationCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import {
   dislikeVideo,
   likeVideo,
-  videoFetchFailure,
   videoFetchSuccess,
-  videoLikes,
 } from "../Redux/videoSlice";
 import { format } from "timeago.js";
-import { Subscriptions } from "@mui/icons-material";
 import { subscription } from "../Redux/userSlice";
 import Recommendation from "../components/Recommendation";
 

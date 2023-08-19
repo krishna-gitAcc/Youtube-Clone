@@ -18,7 +18,6 @@ import HelpIcon from "@mui/icons-material/Help";
 import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Link } from "react-router-dom";
-import { color } from "@mui/system";
 import { useSelector } from "react-redux";
 
 const Container = styled.div`

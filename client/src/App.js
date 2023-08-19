@@ -7,7 +7,6 @@ import Video from "./Screens/Video";
 import { darkTheme, lightTheme } from "./utils/Thems";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SignpostOutlined } from "@mui/icons-material";
 import Signin from "./Screens/Signin";
 import SignUp from "./Screens/SignUp";
 import Search from "./Screens/Search";
