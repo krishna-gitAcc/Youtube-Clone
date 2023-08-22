@@ -2,12 +2,14 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+var cors = require("cors");
 
 import Routes from "./Routes/index.js";
 
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 dotenv.config();
 
