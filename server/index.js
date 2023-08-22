@@ -13,7 +13,7 @@ app.use(cors());
 
 dotenv.config();
 
-const connect = () => {
+const connectToDb = () => {
   mongoose
     .connect(process.env.mongoUrl)
     .then(() => {
@@ -24,11 +24,8 @@ const connect = () => {
     });
 };
 
-connect();
-
-app.get("/", (req, res) => {
-  res.send("Hello from youtube-backend");
-});
+connectToDb();
+const port = process.env.PORT || 3000;
 
 app.use("/api", Routes);
 app.use((err, req, res, next) => {
@@ -41,6 +38,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("application is live at port 3000");
+app.listen(port, () => {
+  console.log(`application is live at port ${port}`);
 });
