@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios from "../api/Axios/index";
 import { useDispatch } from "react-redux";
 import { loginFailure, loginStart, loginSuccess } from "../Redux/userSlice";
 import { auth, provider } from "../firebase";

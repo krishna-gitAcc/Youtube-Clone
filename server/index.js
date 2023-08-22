@@ -9,7 +9,12 @@ import Routes from "./Routes/index.js";
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+const corsOrigin = {
+  origin: "https://videotube-ff346.web.app/", //or whatever port your frontend is using
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOrigin));
 
 dotenv.config();
 

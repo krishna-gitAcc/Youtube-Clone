@@ -7,7 +7,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import app from "../firebase";
-import axios from "axios";
+import axios from "../api/Axios/index";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
@@ -134,7 +134,7 @@ export default function Upload({ setUploadOpen }) {
     e.preventDefault();
     const response = await axios.post("/videos", { ...fileInput, videoTag });
     setUploadOpen(false);
-    response.status === 200 && navigate(`/video/${response.data.data._id}`);
+    response.status === 200 && navigate(`/api/video/${response.data.data._id}`);
   };
 
   return (

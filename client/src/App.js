@@ -10,7 +10,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signin from "./Screens/Signin";
 import SignUp from "./Screens/SignUp";
 import Search from "./Screens/Search";
-import axios from "axios";
 
 const Container = styled.div`
   display: flex;
@@ -28,8 +27,6 @@ const Wrapper = styled.div`
 function App() {
   const [darkMode, setdarkMode] = useState(true);
   // const [first, setfirst] = useState(second)
-  axios.defaults.baseURL =
-    "https://youtube-clone-backend-re0a.onrender.com/api/";
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>

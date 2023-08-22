@@ -1,4 +1,4 @@
-server/builds
+server/build
 server/node_modules/
 server/.env
 client/build

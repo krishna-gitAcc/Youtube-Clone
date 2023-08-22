@@ -9,7 +9,7 @@ import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 import Comments from "../components/Comments";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
+import axios from "../api/Axios/index";
 import {
   dislikeVideo,
   likeVideo,
@@ -139,11 +139,11 @@ export default function Video() {
   }, [videoId, dispatch]);
 
   const handleLike = async () => {
-    await axios.put(`/users/like/${currentVideo._id}`);
+    await axios.put(`/users/like/${currentVideo?._id}`);
     dispatch(likeVideo(currentUser?._id));
   };
   const handleDislike = async () => {
-    await axios.put(`/users/dislike/${currentVideo._id}`);
+    await axios.put(`/users/dislike/${currentVideo?._id}`);
     dispatch(dislikeVideo(currentUser?._id));
   };
 
@@ -163,11 +163,11 @@ export default function Video() {
           <VideoRapper>
             <VideoFrame src={currentVideo?.videoUrl} controls />
           </VideoRapper>
-          <Title>{currentVideo.title}</Title>
+          <Title>{currentVideo?.title}</Title>
           <Details>
             <Info>
               {" "}
-              {currentVideo.videoView} views {format(currentVideo.createdAt)}{" "}
+              {currentVideo?.videoView} views {format(currentVideo?.createdAt)}{" "}
             </Info>
             <Buttons>
               <Button onClick={handleLike}>
@@ -176,7 +176,7 @@ export default function Video() {
                 ) : (
                   <ThumbUpAltOutlinedIcon />
                 )}
-                {currentVideo.videoLikes.length}
+                {currentVideo?.videoLikes.length}
               </Button>
               <Button onClick={handleDislike}>
                 {currentVideo?.videoDislikes?.includes(currentUser?._id) ? (
@@ -205,7 +205,7 @@ export default function Video() {
                 <ChannelCounter>
                   {channel.subscribers} subscribers
                 </ChannelCounter>
-                <Description>{currentVideo.desc}</Description>
+                <Description>{currentVideo?.desc}</Description>
               </ChannelDetails>
             </ChannelInfo>
             <Subscribe onClick={handleSubscription}>
@@ -215,9 +215,9 @@ export default function Video() {
             </Subscribe>
           </Channel>
           <Hr />
-          <Comments videoId={currentVideo._id} />
+          <Comments videoId={currentVideo?._id} />
         </Content>
-        <Recommendation tags={currentVideo.videoTag} />
+        <Recommendation tags={currentVideo?.videoTag} />
       </Container>
     </div>
   );

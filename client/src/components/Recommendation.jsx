@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import axios from "axios";
+import axios from "../api/Axios/index";
 import RecommendationCard from "./RecommendationCard";
 
 const Container = styled.div`
